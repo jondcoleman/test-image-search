@@ -7,7 +7,7 @@ console.log(key);
 
 
 router.get('/api/imagesearch/:image/', function(req, res, next) {
-  var results = [];
+  let results = [];
   var image = req.params.image;
   var isValidNum = Number(req.params.num) == req.params.num;
   var num = (isValidNum && req.params.num) || 10;
