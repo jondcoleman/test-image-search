@@ -1,5 +1,3 @@
-"user strict";
-
 var express = require('express');
 var router = express.Router();
 var key = require('../config/config.json');
@@ -8,16 +6,16 @@ var bing = require('node-bing-api')(key);
 console.log(key);
 
 
-router.get('/api/imagesearch/:image/:num?/', function(req, res, next) {
-  let results = [];
-  let image = req.params.image;
-  let isValidNum = Number(req.params.num) == req.params.num;
-  let num = (isValidNum && req.params.num) || 10;
+router.get('/api/imagesearch/:image/', function(req, res, next) {
+  var results = [];
+  var image = req.params.image;
+  var isValidNum = Number(req.params.num) == req.params.num;
+  var num = (isValidNum && req.params.num) || 10;
 
   console.log(num);
   // console.log(isValidNum);
   console.log(image);
-  let promise = new Promise(
+  var promise = new Promise(
     function (resolve, reject) {
       bing.images(image, {
         top: 10,
