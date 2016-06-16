@@ -1,3 +1,5 @@
+'user strict';
+
 var express = require('express');
 var router = express.Router();
 var key = require('../config/config.json');
